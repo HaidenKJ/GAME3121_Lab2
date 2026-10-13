@@ -1788,6 +1788,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bff61debcf2d4341bccc6366fc78f45, type: 3}
+--- !u!1 &993938227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993938228}
+  - component: {fileID: 993938229}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &993938228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993938227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993938229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993938227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad65ee69f1b0004eafd434d2aaf6a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  backgroundMusic: {fileID: 8300000, guid: d67f5b630254c684bb9f32f1c50b8e52, type: 3}
+  wallHits:
+  - {fileID: 8300000, guid: 54f45a5a3b172b14e816e2c254e23572, type: 3}
+  - {fileID: 8300000, guid: 8d3b2beffd393904a8b0e1a3d9b4d691, type: 3}
+  - {fileID: 8300000, guid: d474c617eb197de4e82db384e398d1cb, type: 3}
+  - {fileID: 8300000, guid: fcd5c2e11632c5f47855b167d39651db, type: 3}
+  - {fileID: 8300000, guid: 279ba7837832e264fb7be37bee7c4c2a, type: 3}
+  - {fileID: 8300000, guid: 139c34a2459b2f44bb47c3c6856879c6, type: 3}
+  - {fileID: 8300000, guid: 5e38981323241a848816d55f4c11b494, type: 3}
+  - {fileID: 8300000, guid: 55441faff8a7dae4eb6efb5d59b91274, type: 3}
+  - {fileID: 8300000, guid: 7122bb951a31aee43a884d7834a7a87c, type: 3}
+  - {fileID: 8300000, guid: c0f9951a9e1df97428ba086bc780c509, type: 3}
+  winSound: {fileID: 8300000, guid: 02c4e65b951e41a459baba42f80dfced, type: 3}
+  deathSound: {fileID: 8300000, guid: 8f4a3164be0db2f45af381e812b54096, type: 3}
+  wallHitVolume: 1.5
 --- !u!1 &1078972075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,3 +3496,4 @@ SceneRoots:
   - {fileID: 1199201860}
   - {fileID: 1741853640}
   - {fileID: 978249201}
+  - {fileID: 993938228}

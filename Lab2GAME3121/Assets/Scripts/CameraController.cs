@@ -5,16 +5,15 @@ public class CameraController : MonoBehaviour
     [SerializeField] public GameObject Player;
     private Vector3 offset;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         offset = transform.position - Player.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        if (Player == null) return; // player was destroyed, so the camera stays where it is
+
         transform.position = offset + Player.transform.position;
     }
 }
