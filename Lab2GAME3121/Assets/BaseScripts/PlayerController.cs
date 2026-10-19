@@ -16,8 +16,6 @@ public class PlayerController : MonoBehaviour
     private bool gameEnded = false;
     private float lastWallSound = -1f;
 
-    public GameObject explosionPrefab;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("PickUp"))
         {
+            VFXManager.Instance.PlayPickup(other.transform.position); 
             other.gameObject.SetActive(false);
             count++;
             SetCountText();
@@ -52,6 +51,8 @@ public class PlayerController : MonoBehaviour
             {
                 gameEnded = true;
                 WinText.SetActive(true);
+                WinText.GetComponent<TextMeshProUGUI>().text = "YOU WIN!";
+                VFXManager.Instance.PlayConfetti();
                 AudioManager.Instance.StopMusic();
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.winSound);
             }
@@ -64,11 +65,10 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-            // Cooldown so rolling along a wall doesn't spam the sound
-            if (Time.time - lastWallSound > 0.2f)
+            if (Time.time - lastWallSound > 0.2f)  // Cooldown so rolling along a wall doesn't spam the sound
             {
                 lastWallSound = Time.time;
-                AudioManager.Instance.PlayWallHit(); // <-- changed: random clip from the pool
+                AudioManager.Instance.PlayWallHit();
             }
         }
         else if (collision.gameObject.CompareTag("Enemy"))
