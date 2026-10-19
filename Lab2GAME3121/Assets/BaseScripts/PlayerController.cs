@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private bool gameEnded = false;
     private float lastWallSound = -1f;
 
+    public GameObject explosionPrefab;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -76,8 +78,9 @@ public class PlayerController : MonoBehaviour
             WinText.GetComponent<TextMeshProUGUI>().text = "YOU LOST!";
 
             AudioManager.Instance.StopMusic();
-            // PlayClipAtPoint survives the player being destroyed
-            AudioManager.Instance.PlayAtPoint(AudioManager.Instance.deathSound, transform.position);
+            AudioManager.Instance.PlayAtPoint(AudioManager.Instance.deathSound, transform.position); // PlayClipAtPoint survives the player being destroyed
+
+            VFXManager.Instance.PlayExplosion(transform.position); // The explosion 
 
             Destroy(gameObject);
         }
