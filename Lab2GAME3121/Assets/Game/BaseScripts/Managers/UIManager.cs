@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("Game Objeccts")]
+    [Header("Game Objeccts")] 
     public PlayerController playerController;
     public EnemyMovement enemyMovement; // enemy script from Lab 5
 
@@ -12,28 +13,43 @@ public class UIManager : MonoBehaviour
     public GameObject instructionsPanel;
     public GameObject settingsPanel;
 
-    [Header("Audio")]
-    public AudioSource music;
+    [Header("In-Game UI")] 
+    public GameObject scoreText; // score TMP object
+    public GameObject winText; // WinText object
+
+    [Header("Audio UI")]
     public Slider volumeSlider;
     public Toggle musicToggle;
 
+
     void Start()
     {
-        // Game is frozen until Play is clicked
-        playerController.enabled = false;
-        enemyMovement.enabled = false;
+        SetGameActive(false); 
 
         mainMenuPanel.SetActive(true);
         instructionsPanel.SetActive(false);
         settingsPanel.SetActive(false);
 
-        volumeSlider.value = music.volume;
+        volumeSlider.value = AudioManager.Instance.MusicVolume;
     }
+
+    // One place that controls whether the game is running
+    void SetGameActive(bool active)
+    {
+        playerController.enabled = active;
+        enemyMovement.enabled = active;
+        scoreText.SetActive(active);
+
+        if (!active)
+        {
+            winText.SetActive(false);
+        }
+    }
+
     public void PlayGame()
     {
-        playerController.enabled = true;
-        enemyMovement.enabled = true;
-        mainMenuPanel.SetActive(false); // hides title + buttons
+        mainMenuPanel.SetActive(false); // hides title and buttons
+        SetGameActive(true);
     }
 
     public void ShowInstructions()
@@ -47,29 +63,45 @@ public class UIManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         settingsPanel.SetActive(true);
     }
-    public void BackToMenu() // Back button + X button
+
+    public void BackToMenu() // Back button or X button
     {
         instructionsPanel.SetActive(false);
         settingsPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
+
     public void QuitGame()
     {
-        Debug.Log("Quit pressed"); 
+        Debug.Log("Quit pressed");
         Application.Quit();
     }
-    public void SetVolume(float value) // In-game audio slider
+
+    public void SetVolume(float value) // Volume slider
     {
-        music.volume = value;
+        AudioManager.Instance.SetMusicVolume(value);
     }
 
-    public void ToggleMusic(bool isOn) // In-game Music toggle
+    public void ToggleMusic(bool isOn) // Music toggle
     {
-        music.mute = !isOn;
+        AudioManager.Instance.SetMusicMuted(!isOn);
     }
 
-    public void SetEnemySpeed(float speed) // Set speeds for enemy 
+    public void SetEnemySpeed(float speed) // Set speeds for enemy
     {
         enemyMovement.SetSpeed(speed);
+        Debug.Log("Current Speed is set to " + speed);
+    }
+    public void SetCustomEnemySpeed(string input)
+    {
+        if (float.TryParse(input, out float speed))
+        {
+            speed = Mathf.Max(0f, speed); // no negitives
+            enemyMovement.SetSpeed(speed);
+        }
+        else
+        {
+            Debug.Log("Invalid speed entered");
+        }
     }
 }

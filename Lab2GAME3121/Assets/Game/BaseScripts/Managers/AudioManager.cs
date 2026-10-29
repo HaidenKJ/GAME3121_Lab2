@@ -10,8 +10,8 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> wallHits = new List<AudioClip>(); // pool of wall hit sounds
     public AudioClip winSound;
     public AudioClip deathSound;
-
     private AudioSource musicSource;
+    public float MusicVolume => musicSource.volume;
     private AudioSource sfxSource;
     private int lastWallIndex = -1;
     [Range(0f, 2f)] public float wallHitVolume = 1.5f; // Was too quiet, so I increased it to 1.5f
@@ -60,5 +60,15 @@ public class AudioManager : MonoBehaviour
     public void PlayAtPoint(AudioClip clip, Vector3 pos, float volume = 1f)
     {
         if (clip != null) AudioSource.PlayClipAtPoint(clip, pos, volume);
+    }
+
+    public void SetMusicVolume(float value)
+    {
+        musicSource.volume = value;
+    }
+
+    public void SetMusicMuted(bool muted)
+    {
+        musicSource.mute = muted;
     }
 }
