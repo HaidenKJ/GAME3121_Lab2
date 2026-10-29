@@ -7,7 +7,7 @@ public class PlayerTrail : MonoBehaviour
 
     void LateUpdate()
     {
-        if (player == null) // Player was destroyed so stop emitting, but let existing particles fade
+        if (player == null) // lets particles fade and stop producing when the player dies
         {
             var ps = GetComponent<ParticleSystem>();
             if (ps != null && ps.isEmitting) ps.Stop();

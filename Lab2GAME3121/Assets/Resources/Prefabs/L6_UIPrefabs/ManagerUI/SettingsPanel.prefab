@@ -319,8 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
@@ -474,8 +472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
@@ -2013,8 +2009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
@@ -2116,7 +2110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5207129675717530455
 Transform:
   m_ObjectHideFlags: 0
@@ -2420,8 +2414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
@@ -3135,8 +3127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}

@@ -25,6 +25,8 @@ public class AudioManager : MonoBehaviour
         musicSource.loop = true;
         musicSource.volume = 0.25f;
         musicSource.playOnAwake = false;
+        musicSource.volume = GameSettings.MusicVolume;
+        musicSource.mute = !GameSettings.MusicOn;
 
         sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.playOnAwake = false;
@@ -55,7 +57,10 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(wallHits[index], wallHitVolume);
     }
 
-    public void StopMusic() { musicSource.Stop(); }
+    public void StopMusic() 
+    { 
+        musicSource.Stop(); 
+    }
 
     public void PlayAtPoint(AudioClip clip, Vector3 pos, float volume = 1f)
     {

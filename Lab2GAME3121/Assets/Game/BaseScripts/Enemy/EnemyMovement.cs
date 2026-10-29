@@ -4,23 +4,24 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform Player;
-    private NavMeshAgent agent;
+    private NavMeshAgent JimmothyRectangle;
 
     void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        JimmothyRectangle = GetComponent<NavMeshAgent>();
+        JimmothyRectangle.speed = GameSettings.EnemySpeed;
     }
 
     void Update()
     {
         if (Player != null)
         {
-            agent.SetDestination(Player.position);
+            JimmothyRectangle.SetDestination(Player.position);
         }
     }
 
     public void SetSpeed(float s)
     {
-        agent.speed = s;
+        JimmothyRectangle.speed = s;
     }
 }

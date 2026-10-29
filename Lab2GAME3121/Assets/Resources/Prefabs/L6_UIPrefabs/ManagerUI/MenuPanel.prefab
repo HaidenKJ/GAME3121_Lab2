@@ -361,8 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
@@ -729,8 +727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
@@ -1021,8 +1017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
@@ -1313,8 +1307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
   mainMenuPanel: {fileID: 0}
   instructionsPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
