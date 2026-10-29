@@ -5,20 +5,22 @@ public class EnemyMovement : MonoBehaviour
 {
     public Transform Player;
     private NavMeshAgent agent;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Player != null)
         {
-            Debug.Log("Player is not null");
             agent.SetDestination(Player.position);
-            Debug.Log(Player.position);
         }
+    }
+
+    public void SetSpeed(float s)
+    {
+        agent.speed = s;
     }
 }
