@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MenuUIManager : MonoBehaviour
 {
@@ -13,6 +12,16 @@ public class MenuUIManager : MonoBehaviour
     public Slider volumeSlider;
     public Toggle musicToggle;
 
+    private PlayerController playerController;
+    private EnemyMovement enemyMovement;
+
+    void Awake()
+    {
+        playerController = FindAnyObjectByType<PlayerController>();
+        enemyMovement = FindAnyObjectByType<EnemyMovement>();
+
+        SetGameActive(false);  
+    }
     void Start()
     {
         mainMenuPanel.SetActive(true);
@@ -23,15 +32,30 @@ public class MenuUIManager : MonoBehaviour
         musicToggle.isOn = GameSettings.MusicOn;
     }
 
+    void SetGameActive(bool active)
+    {
+        playerController.enabled = active;
+        enemyMovement.enabled = active;
+
+        if (active)
+        {
+            Debug.Log("Game is now ACTIVE! Player and enemies can move now.");
+        }
+        else
+        {
+            Debug.Log("Game is now INACTIVE! Player and enemy movement are disabled.");
+        }
+    }
     public void PlayGame()          
     { 
-        SceneManager.LoadScene("GameScene"); 
+        mainMenuPanel.SetActive(false);
+        SetGameActive(true);
     }
 
     public void ShowInstructions() 
     { 
-    mainMenuPanel.SetActive(false); 
-    instructionsPanel.SetActive(true); 
+        mainMenuPanel.SetActive(false); 
+        instructionsPanel.SetActive(true); 
     }
     public void ShowSettings()      
     { 
@@ -52,24 +76,31 @@ public class MenuUIManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void SetVolume(float value)   
-    { 
-        GameSettings.MusicVolume = value; 
+    public void SetVolume(float value)
+    {
+        GameSettings.MusicVolume = value;
+        AudioManager.Instance.SetMusicVolume(value);
     }
-    public void ToggleMusic(bool isOn)   
-    { 
-        GameSettings.MusicOn = isOn; 
+
+    public void ToggleMusic(bool isOn)
+    {
+        GameSettings.MusicOn = isOn;
+        AudioManager.Instance.SetMusicMuted(!isOn);
     }
-    public void SetEnemySpeed(float s)   
-    { 
-        GameSettings.EnemySpeed = s; 
+
+    public void SetEnemySpeed(float s)
+    {
+        GameSettings.EnemySpeed = s;
+        enemyMovement.SetSpeed(s);
     }
 
     public void SetCustomEnemySpeed(string input)
     {
         if (float.TryParse(input, out float speed))
         {
-            GameSettings.EnemySpeed = Mathf.Max(0f, speed);
+            speed = Mathf.Max(0f, speed);
+            GameSettings.EnemySpeed = speed;
+            enemyMovement.SetSpeed(speed);
         }
     }
 }

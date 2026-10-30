@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5600031110638939279}
   - component: {fileID: 6462868712850441390}
   - component: {fileID: 3772813529223748282}
-  - component: {fileID: 4143673042254864775}
+  - component: {fileID: 8329857621483494974}
   m_Layer: 0
   m_Name: DaManager
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 4935827204929025462, guid: a03b9adceb59c2949b393f789021f3c3, type: 3}
   pickupPrefab: {fileID: 4935827204929025462, guid: 7ddb5215ebe5e5a4bb7ddb95b2576635, type: 3}
   confetti: {fileID: 0}
---- !u!114 &4143673042254864775
+--- !u!114 &8329857621483494974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,14 +89,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e26c505b87498c74abb15aeaccc722cb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 0}
-  mainMenuPanel: {fileID: 7920526442795580710, guid: dfd8ed5d1002cec4eb8cd4049e5bc81d, type: 3}
-  instructionsPanel: {fileID: 7003752528461208186, guid: 3394ff8f6949e1d449e1b6f47f6cecfc, type: 3}
-  settingsPanel: {fileID: 5337633958064587546, guid: c5b66acaa69f9234f81407919d901643, type: 3}
-  scoreText: {fileID: 0}
-  winText: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::MenuUIManager
+  mainMenuPanel: {fileID: 0}
+  instructionsPanel: {fileID: 0}
+  settingsPanel: {fileID: 0}
   volumeSlider: {fileID: 0}
   musicToggle: {fileID: 0}
 --- !u!1001 &738277984801992528
