@@ -98,15 +98,16 @@ public class MenuUIManager : MonoBehaviour
     {
         GameSettings.EnemySpeed = s;
         enemyMovement.SetSpeed(s);
+        Debug.Log("Enemy Speed currently Set to " + s);
     }
 
-    public void SetCustomEnemySpeed(string input)
-    {
-        if (float.TryParse(input, out float speed))
-        {
-            speed = Mathf.Max(0f, speed);
-            GameSettings.EnemySpeed = speed;
-            enemyMovement.SetSpeed(speed);
-        }
-    }
+    // public void SetCustomEnemySpeed(string input)
+    // {
+    //     if (float.TryParse(input, out float speed))
+    //     {
+    //         speed = Mathf.Max(0f, speed);
+    //         GameSettings.EnemySpeed = speed;
+    //         enemyMovement.SetSpeed(speed);
+    //     }
+    // }
 }

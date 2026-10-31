@@ -23,5 +23,6 @@ public class EnemyMovement : MonoBehaviour
     public void SetSpeed(float s)
     {
         JimmothyRectangle.speed = s;
+        Debug.Log("Enemy Speed is " + s);
     }
 }
