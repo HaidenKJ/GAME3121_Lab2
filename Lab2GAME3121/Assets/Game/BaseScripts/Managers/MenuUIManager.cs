@@ -17,6 +17,7 @@ public class MenuUIManager : MonoBehaviour
 
     void Awake()
     {
+        GameSettings.ResetToDefaults(); // Setting music, enemy speed and otehr changes back to defaults since I don't want changes to carry over
         playerController = FindAnyObjectByType<PlayerController>();
         enemyMovement = FindAnyObjectByType<EnemyMovement>();
 
@@ -28,8 +29,12 @@ public class MenuUIManager : MonoBehaviour
         instructionsPanel.SetActive(false);
         settingsPanel.SetActive(false);
 
-        volumeSlider.value = GameSettings.MusicVolume;
-        musicToggle.isOn = GameSettings.MusicOn;
+        AudioManager.Instance.SetMusicVolume(GameSettings.MusicVolume);
+        AudioManager.Instance.SetMusicMuted(!GameSettings.MusicOn);
+        enemyMovement.SetSpeed(GameSettings.EnemySpeed);
+
+        volumeSlider.onValueChanged.AddListener(SetVolume);
+        musicToggle.onValueChanged.AddListener(ToggleMusic);
     }
 
     void SetGameActive(bool active)
@@ -78,16 +83,17 @@ public class MenuUIManager : MonoBehaviour
 
     public void SetVolume(float value)
     {
+        Debug.Log("SetVolume called: " + value);
         GameSettings.MusicVolume = value;
         AudioManager.Instance.SetMusicVolume(value);
     }
 
     public void ToggleMusic(bool isOn)
     {
+        Debug.Log("ToggleMusic called: " + isOn);
         GameSettings.MusicOn = isOn;
         AudioManager.Instance.SetMusicMuted(!isOn);
     }
-
     public void SetEnemySpeed(float s)
     {
         GameSettings.EnemySpeed = s;
