@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource musicSource;
     public float MusicVolume => musicSource.volume;
     private AudioSource sfxSource;
+    public AudioClip buttonClickSound; // I'm adding this SFX so the user actually knows the button clicked (It's hard to know without any sort of feedback)
     private int lastWallIndex = -1;
     [Range(0f, 2f)] public float wallHitVolume = 1.5f; // Was too quiet, so I increased it to 1.5f
 
@@ -66,7 +67,10 @@ public class AudioManager : MonoBehaviour
     {
         if (clip != null) AudioSource.PlayClipAtPoint(clip, pos, volume);
     }
-
+    public void PlayButtonClick()
+    {
+        PlaySFX(buttonClickSound);
+    }
     public void SetMusicVolume(float value)
     {
         musicSource.volume = value;
